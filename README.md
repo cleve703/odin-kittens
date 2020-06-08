@@ -1,24 +1,3 @@
-# README
+Odin-kittens is an app that features a database of kittens. The database allows the user to store information pertaining to each kitten's name, age, cuteness and softness. The main goal of this app is to demonstrate my ability as a coder to make application data accessible via API. This app was built with Ruby on Rails, as part of the full-stack developer curriculum at [theOdinProject](https://theodinproject.com).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Please visit my homepage, [CodingCop](https://codingcop.com), and my [Github Repository](https://github.com/cleve703).
