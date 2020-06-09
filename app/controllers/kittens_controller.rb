@@ -1,6 +1,6 @@
 class KittensController < ApplicationController
   before_action :set_kitten, only: [:show, :edit, :update, :destroy]
-  before_action :sanitize_kitten_params, only: [:create]
+  before_action :sanitize_kitten_params, only: [:create, :update]
 
   # GET /kittens
   # GET /kittens.json
