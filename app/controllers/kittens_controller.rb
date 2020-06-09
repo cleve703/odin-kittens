@@ -1,5 +1,6 @@
 class KittensController < ApplicationController
   before_action :set_kitten, only: [:show, :edit, :update, :destroy]
+  before_action :sanitize_kitten_params, only: [:create]
 
   # GET /kittens
   # GET /kittens.json
@@ -25,7 +26,7 @@ class KittensController < ApplicationController
   # POST /kittens.json
   def create
     @kitten = Kitten.new(kitten_params)
-
+    
     respond_to do |format|
       if @kitten.save
         format.html { redirect_to @kitten, notice: 'Kitten was successfully created.' }
@@ -36,7 +37,7 @@ class KittensController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /kittens/1
   # PATCH/PUT /kittens/1.json
   def update
@@ -50,7 +51,7 @@ class KittensController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /kittens/1
   # DELETE /kittens/1.json
   def destroy
@@ -60,15 +61,22 @@ class KittensController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_kitten
-      @kitten = Kitten.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def kitten_params
-      params.fetch(:kitten, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_kitten
+    @kitten = Kitten.find(params[:id])
+  end
+  
+  # Only allow a list of trusted parameters through.
+  def kitten_params
+    params.require(:kitten).permit(:name, :age, :cuteness, :softness)
+  end
+  
+  # Convert numerical string params to integer before action.
+  def sanitize_kitten_params
+    kitten_params[:age] = kitten_params[:age].to_i
+    kitten_params[:softness] = kitten_params[:softness].to_i
+    kitten_params[:cuteness] = kitten_params[:cuteness].to_i
+  end
 end

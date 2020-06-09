@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<h2><%= @kitten.name %></h2>
+<ul>
+  <li>Age: <%= @kitten.age %></li>
+  <li>Cuteness: <%= @kitten.cuteness %></li>
+  <li>Softness: <%= @kitten.softness %></li>
+</ul>
 <%= link_to 'Edit', edit_kitten_path(@kitten) %> |
 <%= link_to 'Back', kittens_path %>
