@@ -6,11 +6,20 @@ class KittensController < ApplicationController
   # GET /kittens.json
   def index
     @kittens = Kitten.all
+
+    respond_to do |format|
+      format.html
+      format.json {render :json => @kittens}
+    end
   end
 
   # GET /kittens/1
   # GET /kittens/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json {render :json => @kitten}
+    end
   end
 
   # GET /kittens/new
